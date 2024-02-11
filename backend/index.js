@@ -1,4 +1,3 @@
-
 // write basic express boilerplate code,
 // with express.json() middleware
 // NOT authenticated application
@@ -16,7 +15,7 @@ const { todo } = require('./db.js');
 app.use(express.json()); // middleware
 
 // POST endpoint for adding a new TODO 
-app.post("/todo",async function(req, res){
+app.post("/todo", async function(req, res){
     const createPayload = req.body;
     // The zod object allows us to parse an incoming JSON using the safeParse mtd
     const parsedPayload = createTodo.safeParse(createPayload);
@@ -61,6 +60,7 @@ app.put("/completed", async function(req, res){
         });
         return;
     }
+
     // put it in MongoDB -- need clarity
     await todo.update({
         _id: req.body.id,
@@ -71,3 +71,5 @@ app.put("/completed", async function(req, res){
         msg: "Todo marked as complete",
     });
 });
+
+app.listen(3000);

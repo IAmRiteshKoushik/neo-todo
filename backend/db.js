@@ -8,7 +8,7 @@
 const mongoose = require("mongoose");
 
 // Adding the MongoDB url (better to use .env file)
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect("mongodb://localhost:27017/todo-application")
 const todoSchema = mongoose.Schema({
     title: String,
     description: String,
